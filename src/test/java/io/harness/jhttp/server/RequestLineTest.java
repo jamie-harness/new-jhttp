@@ -3,16 +3,19 @@ package io.harness.jhttp.server;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
+import io.harness.agent.sdk.HarnessAlwaysRun;
 
 public class RequestLineTest {
 
     @Test
+    @HarnessAlwaysRun
     public void testParseRequestLine() {
         testParse("GET /xyz", "GET", "/xyz", "HTTP/1.0");
         testParse("GET /xyz HTTP/1.1", "GET", "/xyz", "HTTP/1.1");
         testParse("GET /xyz HTTP/1.1 asd", "GET", "/xyz", "HTTP/1.1");
     }
 
+    @HarnessAlwaysRun
     @Test(expected = IllegalArgumentException.class)
     public void emptyLine() {
         RequestLine.parse("");
