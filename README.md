@@ -31,3 +31,4 @@ It creates a self-contained, executable JAR in the `target` directory.
 
 test1
 test2
+test3
